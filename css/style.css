@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1300px;
   margin: 0 auto;
   width: 100%;
 }
@@ -27,6 +27,7 @@ nav .navigationBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 2em;
 }
 nav .navigationBar .logo h1 {
   font-size: 3.5rem;
@@ -38,7 +39,7 @@ nav .navigationBar .logo h1 a {
   color: rgb(225, 233, 221);
 }
 nav .navigationBar .links {
-  align-items: center;
+  height: 30px;
 }
 nav .navigationBar .links a {
   display: inline-block;
@@ -53,6 +54,50 @@ nav .navigationBar .links a {
 }
 nav .navigationBar .links a:hover {
   color: #fddb3a;
+}
+nav .navigationBar .links #menu_checkbox {
+  display: none;
+}
+nav .navigationBar .links label {
+  display: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+nav .navigationBar .links label div {
+  position: relative;
+  top: 0;
+  height: 5px;
+  background-color: #fff;
+  margin-bottom: 5px;
+  transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width, 0.3s ease right;
+  border-radius: 30px;
+}
+nav .navigationBar .links label div:first-child {
+  transform-origin: 0;
+}
+nav .navigationBar .links label div:last-child {
+  margin-bottom: 0;
+  transform-origin: 60px;
+}
+nav .navigationBar .links label div:nth-child(2) {
+  right: 0;
+  width: 30px;
+}
+nav .navigationBar .links #menu_checkbox:checked + label div:first-child {
+  top: -2px;
+  transform: rotateZ(45deg);
+}
+nav .navigationBar .links #menu_checkbox:checked + label div:last-child {
+  top: 27px;
+  right: 11px;
+  transform: rotateZ(45deg);
+}
+nav .navigationBar .links #menu_checkbox:checked + label div:nth-child(2) {
+  width: 38px;
+  top: 1.5px;
+  right: 5px;
+  transform: rotateZ(-45deg);
 }
 nav .navigationBar .links .dot {
   display: block;
@@ -83,4 +128,13 @@ nav .navigationBar .links a:nth-child(4):hover ~ .dot {
   transform: translateX(317px);
   transition: all 0.2s ease-in-out;
   opacity: 1;
+}
+
+@media (max-width: 700px) {
+  nav .navigationBar .links a {
+    display: none;
+  }
+  nav .navigationBar .links label {
+    display: inline-block;
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -13,7 +13,7 @@ body{
   background-color: rgb(29, 31, 31);
 }
 .container{
-  max-width: 900px;
+  max-width: 1300px;
   margin: 0 auto;
   width: 100%;
 }
@@ -24,6 +24,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 2em;
     .logo{
       h1{
         font-size: 3.5rem;
@@ -36,9 +37,7 @@ nav{
       }
     }
     .links{
-      // display: flex;
-      // justify-content: space-between;
-      align-items: center;
+      height: 30px;
       a{
         display: inline-block;
         text-decoration: none;
@@ -53,6 +52,52 @@ nav{
           color: #fddb3a;
         }
       }
+      // burger menu
+      #menu_checkbox {
+        display: none;
+      }
+      label {
+        display: none;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+      }
+      label div {
+        position: relative;
+        top: 0;
+        height: 5px;
+        background-color: #fff;
+        margin-bottom: 5px;
+        transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width, 0.3s ease right;
+        border-radius: 30px;
+      }
+      label div:first-child {
+        transform-origin: 0;
+      }
+      label div:last-child {
+        margin-bottom: 0;
+        transform-origin: 60px;
+      }
+      label div:nth-child(2) {
+        right: 0;
+        width: 30px;
+      }
+      #menu_checkbox:checked + label div:first-child {
+        top: -2px;
+        transform: rotateZ(45deg);
+      }
+      #menu_checkbox:checked + label div:last-child {
+        top: 27px;
+        right: 11px;
+        transform: rotateZ(45deg);
+      }
+      #menu_checkbox:checked + label div:nth-child(2) {
+        width: 38px;
+        top: 1.5px;
+        right: 5px;
+        transform: rotateZ(-45deg);
+      }
+      //dot pattern
       .dot{
         display: block;
         width: 6px;
@@ -82,6 +127,20 @@ nav{
         transform: translateX(317px);
         transition: all 0.2s ease-in-out;
         opacity: 1;
+      }
+    }
+  }
+}
+@media (max-width: 700px){
+  nav{
+    .navigationBar{
+      .links{
+        a{
+          display: none;
+        }
+        label{
+          display: inline-block;
+        }
       }
     }
   }
