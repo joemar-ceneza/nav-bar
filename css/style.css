@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  background-color: rgb(29, 31, 31);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+nav {
+  background-color: #272727;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+nav .navigationBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .navigationBar .logo h1 {
+  font-size: 3.5rem;
+  padding: 0.5em 0.3em;
+  color: rgb(231, 132, 2);
+}
+nav .navigationBar .logo h1 a {
+  text-decoration: none;
+  color: rgb(225, 233, 221);
+}
+nav .navigationBar .links {
+  align-items: center;
+}
+nav .navigationBar .links a {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  padding: 0.5em 1em;
+  color: rgb(225, 233, 221);
+  transition: all 0.2s ease-in-out;
+}
+nav .navigationBar .links a:hover {
+  color: #fddb3a;
+}
+nav .navigationBar .links .dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: #fddb3a;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.2s ease-in-out;
+}
+nav .navigationBar .links a:nth-child(1):hover ~ .dot {
+  transform: translateX(40px);
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+nav .navigationBar .links a:nth-child(2):hover ~ .dot {
+  transform: translateX(130px);
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+nav .navigationBar .links a:nth-child(3):hover ~ .dot {
+  transform: translateX(223px);
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+nav .navigationBar .links a:nth-child(4):hover ~ .dot {
+  transform: translateX(317px);
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}/*# sourceMappingURL=style.css.map */
