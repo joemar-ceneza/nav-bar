@@ -29,19 +29,67 @@ nav .navigationBar {
   align-items: center;
   padding: 0 2em;
 }
-nav .navigationBar .logo h1 {
+nav .navigationBar .nav-header .logo h1 {
   font-size: 3.5rem;
   padding: 0.5em 0.3em;
   color: rgb(231, 132, 2);
 }
-nav .navigationBar .logo h1 a {
+nav .navigationBar .nav-header .logo h1 a {
   text-decoration: none;
   color: rgb(225, 233, 221);
 }
-nav .navigationBar .links {
-  height: 30px;
+nav .navigationBar .nav-header .nav-burger-menu #menu-checkbox {
+  display: none;
 }
-nav .navigationBar .links a {
+nav .navigationBar .nav-header .nav-burger-menu label {
+  display: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+nav .navigationBar .nav-header .nav-burger-menu label div {
+  position: relative;
+  top: 5px;
+  height: 5px;
+  background-color: #fff;
+  margin-bottom: 5px;
+  transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width, 0.3s ease right;
+  border-radius: 30px;
+}
+nav .navigationBar .nav-header .nav-burger-menu label div:first-child {
+  transform-origin: 0;
+}
+nav .navigationBar .nav-header .nav-burger-menu label div:last-child {
+  margin-bottom: 0;
+  transform-origin: 60px;
+}
+nav .navigationBar .nav-header .nav-burger-menu label div:nth-child(2) {
+  right: 0;
+  width: 30px;
+}
+nav .navigationBar .nav-header .nav-burger-menu #menu-checkbox:checked + label div:first-child {
+  top: -2px;
+  transform: rotateZ(45deg);
+}
+nav .navigationBar .nav-header .nav-burger-menu #menu-checkbox:checked + label div:last-child {
+  top: 27px;
+  right: 11px;
+  transform: rotateZ(45deg);
+}
+nav .navigationBar .nav-header .nav-burger-menu #menu-checkbox:checked + label div:nth-child(2) {
+  width: 38px;
+  top: 1.5px;
+  right: 5px;
+  transform: rotateZ(-45deg);
+}
+nav .navigationBar .links {
+  height: auto;
+}
+nav .navigationBar .links li {
+  list-style: none;
+  display: inline-block;
+}
+nav .navigationBar .links li a {
   display: inline-block;
   text-decoration: none;
   text-transform: uppercase;
@@ -52,52 +100,8 @@ nav .navigationBar .links a {
   color: rgb(225, 233, 221);
   transition: all 0.2s ease-in-out;
 }
-nav .navigationBar .links a:hover {
+nav .navigationBar .links li a:hover {
   color: #fddb3a;
-}
-nav .navigationBar .links #menu_checkbox {
-  display: none;
-}
-nav .navigationBar .links label {
-  display: none;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-}
-nav .navigationBar .links label div {
-  position: relative;
-  top: 0;
-  height: 5px;
-  background-color: #fff;
-  margin-bottom: 5px;
-  transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width, 0.3s ease right;
-  border-radius: 30px;
-}
-nav .navigationBar .links label div:first-child {
-  transform-origin: 0;
-}
-nav .navigationBar .links label div:last-child {
-  margin-bottom: 0;
-  transform-origin: 60px;
-}
-nav .navigationBar .links label div:nth-child(2) {
-  right: 0;
-  width: 30px;
-}
-nav .navigationBar .links #menu_checkbox:checked + label div:first-child {
-  top: -2px;
-  transform: rotateZ(45deg);
-}
-nav .navigationBar .links #menu_checkbox:checked + label div:last-child {
-  top: 27px;
-  right: 11px;
-  transform: rotateZ(45deg);
-}
-nav .navigationBar .links #menu_checkbox:checked + label div:nth-child(2) {
-  width: 38px;
-  top: 1.5px;
-  right: 5px;
-  transform: rotateZ(-45deg);
 }
 nav .navigationBar .links .dot {
   display: block;
@@ -109,32 +113,54 @@ nav .navigationBar .links .dot {
   transform: translateX(40px);
   transition: all 0.2s ease-in-out;
 }
-nav .navigationBar .links a:nth-child(1):hover ~ .dot {
+nav .navigationBar .links li:nth-child(1):hover ~ .dot {
   transform: translateX(40px);
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
-nav .navigationBar .links a:nth-child(2):hover ~ .dot {
+nav .navigationBar .links li:nth-child(2):hover ~ .dot {
   transform: translateX(130px);
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
-nav .navigationBar .links a:nth-child(3):hover ~ .dot {
+nav .navigationBar .links li:nth-child(3):hover ~ .dot {
   transform: translateX(223px);
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
-nav .navigationBar .links a:nth-child(4):hover ~ .dot {
+nav .navigationBar .links li:nth-child(4):hover ~ .dot {
   transform: translateX(317px);
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
 
 @media (max-width: 700px) {
-  nav .navigationBar .links a {
+  nav .navigationBar {
+    display: block;
+  }
+  nav .navigationBar .nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav .navigationBar .nav-header .logo h1 {
+    padding: 0.5em 0em;
+  }
+  nav .navigationBar .nav-header .nav-burger-menu label {
+    display: inline-block;
+  }
+  nav .navigationBar .links {
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s linear;
+  }
+  nav .navigationBar .links li {
+    display: block;
+  }
+  nav .navigationBar .links .dot {
     display: none;
   }
-  nav .navigationBar .links label {
-    display: inline-block;
+  nav .navigationBar .show-links {
+    height: 9rem;
   }
 }/*# sourceMappingURL=style.css.map */

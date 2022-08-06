@@ -3,145 +3,175 @@
 *,
 ::before,
 ::after{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 body{
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  background-color: rgb(29, 31, 31);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    background-color: rgb(29, 31, 31);
 }
 .container{
-  max-width: 1300px;
-  margin: 0 auto;
-  width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
 }
 nav{
-  background-color: #272727;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  .navigationBar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2em;
-    .logo{
-      h1{
-        font-size: 3.5rem;
-        padding: 0.5em 0.3em;
-        color: rgb(231, 132, 2);
-        a{
-          text-decoration: none;
-          color: rgb(225, 233, 221);
+    background-color: #272727;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    .navigationBar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2em;
+        .nav-header{
+            .logo{
+                h1{
+                    font-size: 3.5rem;
+                    padding: 0.5em 0.3em;
+                    color: rgb(231, 132, 2);
+                    a{
+                        text-decoration: none;
+                        color: rgb(225, 233, 221);
+                    }
+                }
+            }
+            .nav-burger-menu{
+                // burger menu
+                #menu-checkbox {
+                    display: none;
+                }
+                label {
+                    display: none;
+                    width: 30px;
+                    height: 30px;
+                    cursor: pointer;
+                }
+                label div {
+                    position: relative;
+                    top: 5px;
+                    height: 5px;
+                    background-color: #fff;
+                    margin-bottom: 5px;
+                    transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width, 0.3s ease right;
+                    border-radius: 30px;
+                }
+                label div:first-child {
+                    transform-origin: 0;
+                }
+                label div:last-child {
+                    margin-bottom: 0;
+                    transform-origin: 60px;
+                }
+                label div:nth-child(2) {
+                    right: 0;
+                    width: 30px;
+                }
+                #menu-checkbox:checked + label div:first-child {
+                    top: -2px;
+                    transform: rotateZ(45deg);
+                }
+                #menu-checkbox:checked + label div:last-child {
+                    top: 27px;
+                    right: 11px;
+                    transform: rotateZ(45deg);
+                }
+                #menu-checkbox:checked + label div:nth-child(2) {
+                    width: 38px;
+                    top: 1.5px;
+                    right: 5px;
+                    transform: rotateZ(-45deg);
+                }
+            }
         }
-      }
-    }
-    .links{
-      height: 30px;
-      a{
-        display: inline-block;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 1rem;
-        font-weight: 500;
-        letter-spacing: 0.8px;
-        padding: 0.5em 1em;
-        color: rgb(225, 233, 221);
-        transition: all 0.2s ease-in-out;
-        &:hover{
-          color: #fddb3a;
+        .links{
+            height: auto;
+            li{
+                list-style: none;
+                display: inline-block;
+                a{
+                    display: inline-block;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    letter-spacing: 0.8px;
+                    padding: 0.5em 1em;
+                    color: rgb(225, 233, 221);
+                    transition: all 0.2s ease-in-out;
+                    &:hover{
+                        color: #fddb3a;
+                    }
+                }
+            }
+            //dot pattern
+            .dot{
+                display: block;
+                width: 6px;
+                height: 6px;
+                background: #fddb3a;
+                border-radius: 50%;
+                opacity: 0;
+                transform: translateX(40px);
+                transition: all 0.2s ease-in-out;
+            }
+            li:nth-child(1):hover ~ .dot{
+                transform: translateX(40px);
+                transition: all 0.2s ease-in-out;
+                opacity: 1;
+            }
+            li:nth-child(2):hover ~ .dot{
+                transform: translateX(130px);
+                transition: all 0.2s ease-in-out;
+                opacity: 1;
+            }
+            li:nth-child(3):hover ~ .dot{
+                transform: translateX(223px);
+                transition: all 0.2s ease-in-out;
+                opacity: 1;
+            }
+            li:nth-child(4):hover ~ .dot{
+                transform: translateX(317px);
+                transition: all 0.2s ease-in-out;
+                opacity: 1;
+            }
         }
-      }
-      // burger menu
-      #menu_checkbox {
-        display: none;
-      }
-      label {
-        display: none;
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-      }
-      label div {
-        position: relative;
-        top: 0;
-        height: 5px;
-        background-color: #fff;
-        margin-bottom: 5px;
-        transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width, 0.3s ease right;
-        border-radius: 30px;
-      }
-      label div:first-child {
-        transform-origin: 0;
-      }
-      label div:last-child {
-        margin-bottom: 0;
-        transform-origin: 60px;
-      }
-      label div:nth-child(2) {
-        right: 0;
-        width: 30px;
-      }
-      #menu_checkbox:checked + label div:first-child {
-        top: -2px;
-        transform: rotateZ(45deg);
-      }
-      #menu_checkbox:checked + label div:last-child {
-        top: 27px;
-        right: 11px;
-        transform: rotateZ(45deg);
-      }
-      #menu_checkbox:checked + label div:nth-child(2) {
-        width: 38px;
-        top: 1.5px;
-        right: 5px;
-        transform: rotateZ(-45deg);
-      }
-      //dot pattern
-      .dot{
-        display: block;
-        width: 6px;
-        height: 6px;
-        background: #fddb3a;
-        border-radius: 50%;
-        opacity: 0;
-        transform: translateX(40px);
-        transition: all 0.2s ease-in-out;
-      }
-      a:nth-child(1):hover ~ .dot{
-        transform: translateX(40px);
-        transition: all 0.2s ease-in-out;
-        opacity: 1;
-      }
-      a:nth-child(2):hover ~ .dot{
-        transform: translateX(130px);
-        transition: all 0.2s ease-in-out;
-        opacity: 1;
-      }
-      a:nth-child(3):hover ~ .dot{
-        transform: translateX(223px);
-        transition: all 0.2s ease-in-out;
-        opacity: 1;
-      }
-      a:nth-child(4):hover ~ .dot{
-        transform: translateX(317px);
-        transition: all 0.2s ease-in-out;
-        opacity: 1;
-      }
     }
-  }
 }
 @media (max-width: 700px){
-  nav{
-    .navigationBar{
-      .links{
-        a{
-          display: none;
+    nav{
+        .navigationBar{
+            display: block;
+            .nav-header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .logo{
+                    h1{
+                        padding: 0.5em 0em;
+                    }
+                }
+                .nav-burger-menu{
+                    label{
+                        display: inline-block;
+                    }
+                }
+            }
+            .links{
+                height: 0;
+                overflow: hidden;
+                transition: all 0.3s linear;
+                li{
+                    display: block;
+                }
+                .dot{
+                    display: none;
+                }
+            }
+            .show-links{
+                height: 9rem;
+            }
         }
-        label{
-          display: inline-block;
-        }
-      }
     }
-  }
 }
